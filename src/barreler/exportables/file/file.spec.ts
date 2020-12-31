@@ -193,6 +193,14 @@ describe("File", () => {
       expect(exp!.name).toEqual("MyInterface");
     });
 
+    it("should find Unicode Letter interface", () => {
+      const exp = file["findExportableNameFromLine"](
+        "export interface My인터페이스 {}"
+      );
+
+      expect(exp!.name).toEqual("My인터페이스");
+    });
+
     it("should find const", () => {
       const exp = file["findExportableNameFromLine"](
         "export const CONST_VALUE = 34;"
@@ -277,14 +285,6 @@ describe("File", () => {
       );
 
       expect(exp!.name).toEqual("myFunction");
-    });
-
-    it("should find function with aync", () => {
-      const exp = file["findExportableNameFromLine"](
-        "export async function myAsyncFunction() {}"
-      );
-
-      expect(exp!.name).toEqual("myAsyncFunction");
     });
 
     it("should find arrow function", () => {

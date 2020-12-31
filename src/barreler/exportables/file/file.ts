@@ -64,7 +64,8 @@ export class File extends Exportable {
     // TODO: Check for possible multiple exports, multiline exports, etc.
     if (withoutBeginningSpaces.indexOf("{") === 0) return null;
 
-    const exportName = withoutBeginningSpaces.match(/^\w*/);
+    // plz see [Property Syntax](https://unicode.org/reports/tr18/#property_syntax)
+    const exportName = withoutBeginningSpaces.match(/^[\p{L}]*/gu);
 
     if (exportName) {
       return {
