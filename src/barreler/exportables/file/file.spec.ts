@@ -195,10 +195,10 @@ describe("File", () => {
 
     it("should find Unicode Letter interface", () => {
       const exp = file["findExportableNameFromLine"](
-        "export interface My인터페이스 {}"
+        "export interface MY_인터페이스_1234 {}"
       );
 
-      expect(exp!.name).toEqual("My인터페이스");
+      expect(exp!.name).toEqual("MY_인터페이스_1234");
     });
 
     it("should find const", () => {

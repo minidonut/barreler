@@ -65,7 +65,7 @@ export class File extends Exportable {
     if (withoutBeginningSpaces.indexOf("{") === 0) return null;
 
     // plz see [Property Syntax](https://unicode.org/reports/tr18/#property_syntax)
-    const exportName = withoutBeginningSpaces.match(/^[\p{L}]*/gu);
+    const exportName = withoutBeginningSpaces.match(/^[\w\p{L}]*/gu);
 
     if (exportName) {
       return {
