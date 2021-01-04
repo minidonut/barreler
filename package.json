@@ -1,6 +1,6 @@
 {
-  "name": "barreler",
-  "version": "0.0.6",
+  "name": "@hyunjun19/barreler",
+  "version": "0.0.7",
   "description": "Generator for barrel files (export from index files) for JavaScript and TypeScript.",
   "bin": {
     "barreler": "./lib/cli/index.js"
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shinruchan/barreler.git"
+    "url": "git+https://github.com/hyunjun19/barreler.git"
   },
   "keywords": [
     "barrel",
@@ -26,12 +26,12 @@
     "index.ts",
     "typescript"
   ],
-  "author": "Shinru",
+  "author": "HJ Park",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shinruchan/barreler/issues"
+    "url": "https://github.com/hyunjun19/barreler/issues"
   },
-  "homepage": "https://github.com/Shinruchan/barreler#readme",
+  "homepage": "https://github.com/hyunjun19/barreler#readme",
   "devDependencies": {
     "@types/jest": "^24.0.17",
     "@types/meow": "^5.0.0",
