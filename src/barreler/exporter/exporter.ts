@@ -4,8 +4,9 @@ import {
   appendFile,
   compareFileExportsFirst,
   compareAlphabetically,
-  compareDefaultFirst
+  compareDefaultFirst,
 } from "../util";
+import { uniqueBy } from "../util/uniqueBy";
 
 export class Exporter {
   private indexFiles: Map<string, ExportLine[]> = new Map();
@@ -49,7 +50,7 @@ export class Exporter {
   }
 
   private async exportExportsLineToFile(line: ExportLine, file: string) {
-    let listOfExports = line.whatToExport as Export[];
+    let listOfExports = uniqueBy((x) => x.name, line.whatToExport as Export[]);
 
     listOfExports = listOfExports.sort((a, b) =>
       compareAlphabetically(a.name, b.name)
@@ -57,7 +58,7 @@ export class Exporter {
     listOfExports = listOfExports.sort(compareDefaultFirst);
 
     const listOfExportables = listOfExports
-      .map(exp => {
+      .map((exp) => {
         if (!exp.isDefault) return exp.name;
 
         return `default as ${exp.name}`;
